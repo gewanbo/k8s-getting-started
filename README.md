@@ -6,6 +6,11 @@ K8s learning notebook
 minikube start --image-mirror-country='cn'
 ```
 
+## Share a local directory to minikube node
+```
+minikube mount $HOME/data:/data
+```
+
 ## Proxy Dashboard
 
 ```
