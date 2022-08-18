@@ -1,6 +1,11 @@
 # k8s-getting-started
 K8s learning notebook
 
+## Start minikube in local country, especially China (Nice option, thanks to all distributors!)
+```
+minikube start --image-mirror-country='cn'
+```
+
 ## Proxy Dashboard
 
 ```
