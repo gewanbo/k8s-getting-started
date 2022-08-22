@@ -36,3 +36,8 @@ kubectl port-forward pod/dev-mysql-86c9454b4b-bffdf 3306:3306
 ```
 kubectl logs pod/dev-mysql -f
 ```
+
+## Change minikube home place (The default MINIKUBE_HOME is $HOME/.minikube, but sometimes we need to change to another place, maybe just the disk capacity is not enough.)
+```
+export MINIKUBE_HOME=/data/kube
+```
