@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: finance-helper
+  labels:
+    app: finance-helper
+    tier: backend
+spec:
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 18083
+  selector:
+    app: finance-helper
+    tier: backend
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: finance-helper
+  labels:
+    app: finance-helper
+    tier: backend
+spec:
+  containers:
+  - name: finance-helper
+    image: finance-helper_web:latest
+    env:
+      - name: TZ
+        value: Asia/Shanghai
+    volumeMounts:
+    - name: finance-helper-storage
+      mountPath: /finance-helper
+    imagePullPolicy: IfNotPresent
+  volumes:
+    - name: finance-helper-storage
+      hostPath:
+        path: /finance-helper
+        type: Directory
